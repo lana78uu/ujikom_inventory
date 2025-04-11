@@ -77,10 +77,12 @@ foreach ($result as $row) {
             text-decoration: none;
             display: flex;
             align-items: center;
+            
         }
 
         .logo-icon {
-            margin-right: 0.5rem;
+            margin-left: 5rem;
+            margin-right: 1.2rem;
             font-size: 1.6rem;
         }
 
@@ -171,8 +173,8 @@ foreach ($result as $row) {
         }
 
         .table th {
-            background-color: #2e2e2e;
-            color: #ffc107;
+            background-color: #eee;
+            color: #1c1c1c;
         }
 
         .table tbody tr:nth-child(even) {
@@ -192,14 +194,14 @@ foreach ($result as $row) {
         }
 
         tfoot strong {
-            color: #ffc107;
+            color: #eee;
         }
     </style>
 </head>
 <body>
 <header class="header">
     <a href="index.php" class="logo">
-        <i class="fas fa-camera logo-icon"></i> KAMERA
+        <i class="fas fa-camera logo-icon"></i> YURAS KAMERA
     </a>
     <nav class="nav">
         <a class="nav-link" href="tampil_produk.php">PRODUK</a>
