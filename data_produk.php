@@ -128,7 +128,7 @@ include "koneksi.php";
 <body>
 <header class="header">
     <a href="index.php" class="logo">
-        <i class="fas fa-camera logo-icon"></i> KAMERA
+        <i class="fas fa-camera logo-icon"></i> YURAS KAMERA
     </a>
     <nav class="nav">
         <a class="nav-link" href="tampil_produk.php">PRODUK</a>
