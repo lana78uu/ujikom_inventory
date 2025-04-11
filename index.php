@@ -154,7 +154,7 @@ if (!isset($_SESSION['username'])) {
     <header class="header p-4">
         <div class="container d-flex justify-content-between align-items-center">
             <a href="#" class="logo">
-                <i class="fas fa-camera logo-icon"></i> KAMERA
+                <i class="fas fa-camera logo-icon"></i> YURAS KAMERA
             </a>
             <nav class="nav">
                 <a class="nav-link" href="tampil_produk.php">PRODUK</a>
