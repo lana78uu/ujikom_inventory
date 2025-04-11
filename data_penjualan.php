@@ -22,10 +22,11 @@ $sql_semua_toko = "SELECT TokoID, NamaToko FROM toko";
 $result_semua_toko = $koneksi->query($sql_semua_toko);
 
 // Fungsi untuk memformat harga ke Rupiah
-function formatRupiah($angka) {
+function formatRupiah($angka) { 
     $rupiah = "Rp " . number_format($angka, 2, ',', '.');
     return $rupiah;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -185,7 +186,7 @@ function formatRupiah($angka) {
 <body>
 <header class="header">
     <a href="index.php" class="logo">
-        <i class="fas fa-camera logo-icon"></i> KAMERA
+        <i class="fas fa-camera logo-icon"></i> YURAS KAMERA
     </a>
     <nav class="nav">
         <a class="nav-link" href="tampil_produk.php">PRODUK</a>
@@ -209,10 +210,15 @@ function formatRupiah($angka) {
                 <?php endwhile; ?>
             </select>
         </div>
-        <div class="form-group">
-            <label for="Harga">Harga Produk :</label>
-<input type="text" id="Harga" name="Harga" class="form-control" value="<?= $barang ? formatRupiah($barang['Harga']) : '' ?>" required readonly>        </div>
-
+<div class="form-group">
+    <label for="Harga">Harga Produk :</label>
+        <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Rp</span>
+</div>
+     <input type="text" id="Harga" name="Harga" class="form-control" value="<?= $barang ? formatRupiah($barang['Harga']) : '' ?>" required readonly>
+    </div>
+    </div>    
         <div class="form-group">
             <label for="Stok">Jumlah Produk :</label>
             <input type="number" id="Stok" name="Stok" class="form-control" oninput="validasiStok()">
