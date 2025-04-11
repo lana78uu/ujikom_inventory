@@ -326,6 +326,43 @@ function formatRupiah($angka) {
     </style>
 </head>
 <body>
+<?php if ($pesan == 'gagal_fk'): ?>
+        <div class="overlay" id="overlay"></div>
+        <div class="popup" id="popup">
+            <div class="popup-content">
+                <p>Data tidak bisa dihapus karena masih terdapat di Detail Penjualan.</p>
+            </div>
+            <div class="popup-buttons">
+                <button onclick="closePopup()" class="ok-btn">OK</button>
+            </div>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.getElementById('overlay').style.display = 'block';
+                document.getElementById('popup').style.display = 'block';
+            });
+
+            function closePopup() {
+                document.getElementById('overlay').style.display = 'none';
+                document.getElementById('popup').style.display = 'none';
+                window.location.href = 'tampil_produk.php'; // Redirect untuk menghilangkan parameter pesan
+            }
+        </script>
+    <?php elseif ($pesan == 'sukses'): ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            Data berhasil dihapus.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    <?php elseif ($pesan == 'gagal'): ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            Data gagal dihapus.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    <?php endif; ?>
     <header class="header">
         <div class="container d-flex justify-content-between align-items-center">
             <a href="index.php" class="logo">
@@ -394,11 +431,6 @@ function formatRupiah($angka) {
             </tbody>
         </table>
     </div>
-
-    <?php if ($pesan == 'gagal_fk'): ?>
-        <?php elseif ($pesan == 'sukses'): ?>
-        <?php elseif ($pesan == 'gagal'): ?>
-        <?php endif; ?>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
