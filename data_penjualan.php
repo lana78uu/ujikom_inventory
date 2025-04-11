@@ -247,25 +247,18 @@ function formatRupiah($angka) {
 
 <script>
     function updateHarga() {
-    var produkID = document.getElementById("ProdukID").value;
-    <?php
-    $produk_harga = array();
-    $result_harga = $koneksi->query("SELECT ProdukID, Harga FROM produk");
-    while ($row = $result_harga->fetch_assoc()) {
-        $produk_harga[$row['ProdukID']] = $row['Harga'];
+        var produkID = document.getElementById("ProdukID").value;
+        <?php
+        $produk_harga = array();
+        $result_harga = $koneksi->query("SELECT ProdukID, Harga FROM produk");
+        while ($row = $result_harga->fetch_assoc()) {
+            $produk_harga[$row['ProdukID']] = $row['Harga'];
+        }
+        echo "var hargaProduk = " . json_encode($produk_harga) . ";";
+        ?>
+        document.getElementById("Harga").value = hargaProduk[produkID] || '';
+        validasiStok();
     }
-    echo "var hargaProduk = " . json_encode($produk_harga) . ";";
-    ?>
-    document.getElementById("Harga").value = formatRupiah(hargaProduk[produkID]) || '';
-    validasiStok();
-}
-
-function formatRupiah(angka) {
-    if (angka) {
-        return 'Rp ' + parseFloat(angka).toLocaleString('id-ID');
-    }
-    return '';
-}
 
     function validasiStok() {
         var produkID = document.getElementById("ProdukID").value;
@@ -289,11 +282,12 @@ function formatRupiah(angka) {
     }
 
     function hitungSubtotal() {
-    var harga = document.getElementById("Harga").value.replace('Rp ', '').replace(/\./g, '').replace(',', '.');
-    var stok = document.getElementById("Stok").value;
-    var subtotal = harga * stok;
-    document.getElementById("Subtotal").value = formatRupiah(subtotal) || '';
-}
+        var harga = document.getElementById("Harga").value;
+        var stok = document.getElementById("Stok").value;
+        var subtotal = harga * stok;
+        document.getElementById("Subtotal").value = subtotal || '';
+    }
+    
 </script>
 </body>
 </html>
