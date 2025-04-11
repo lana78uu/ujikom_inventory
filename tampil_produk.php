@@ -366,7 +366,7 @@ function formatRupiah($angka) {
     <header class="header">
         <div class="container d-flex justify-content-between align-items-center">
             <a href="index.php" class="logo">
-                <i class="fas fa-camera logo-icon"></i> KAMERA
+                <i class="fas fa-camera logo-icon"></i> YURAS KAMERA
             </a>
             <nav class="nav-links">
                 <li class="nav-item"><a class="nav-link" href="tampil_produk.php">PRODUK</a></li>
