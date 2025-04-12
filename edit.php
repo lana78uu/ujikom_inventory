@@ -13,7 +13,7 @@ $barang = mysqli_fetch_assoc($result);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Barang</title>
+    <title>Edit Produk</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <style>
@@ -132,7 +132,7 @@ $barang = mysqli_fetch_assoc($result);
 <body>
 <header class="header">
     <a href="index.php" class="logo">
-        <i class="fas fa-camera logo-icon"></i> KAMERA
+        <i class="fas fa-camera logo-icon"></i> YURAS KAMERA
     </a>
     <nav class="nav">
         <a class="nav-link" href="tampil_produk.php">PRODUK</a>
@@ -142,7 +142,7 @@ $barang = mysqli_fetch_assoc($result);
     </nav>
 </header>
     <div class="container mt-5">
-        <h2>Edit Barang</h2>
+        <h2>Edit Produk</h2>
 
         <form action="update.php" method="POST">
             <input type="hidden" name="action" value="<?php echo $barang['ProdukID']; ?>">
