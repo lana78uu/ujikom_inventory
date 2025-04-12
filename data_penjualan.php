@@ -22,11 +22,10 @@ $sql_semua_toko = "SELECT TokoID, NamaToko FROM toko";
 $result_semua_toko = $koneksi->query($sql_semua_toko);
 
 // Fungsi untuk memformat harga ke Rupiah
-function formatRupiah($angka) { 
+function formatRupiah($angka) {
     $rupiah = "Rp " . number_format($angka, 2, ',', '.');
     return $rupiah;
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -210,15 +209,10 @@ function formatRupiah($angka) {
                 <?php endwhile; ?>
             </select>
         </div>
-<div class="form-group">
-    <label for="Harga">Harga Produk :</label>
-        <div class="input-group">
-        <div class="input-group-prepend">
-            <span class="input-group-text">Rp</span>
-</div>
-     <input type="text" id="Harga" name="Harga" class="form-control" value="<?= $barang ? formatRupiah($barang['Harga']) : '' ?>" required readonly>
-    </div>
-    </div>    
+        <div class="form-group">
+            <label for="Harga">Harga Produk :</label>
+<input type="text" id="Harga" name="Harga" class="form-control" value="<?= $barang ? formatRupiah($barang['Harga']) : '' ?>" required readonly>        </div>
+
         <div class="form-group">
             <label for="Stok">Jumlah Produk :</label>
             <input type="number" id="Stok" name="Stok" class="form-control" oninput="validasiStok()">
@@ -247,7 +241,7 @@ function formatRupiah($angka) {
         </div>
 
         <button type="submit" class="btn btn-primary">Tambah Data</button>
-        <a href="data_penjualan.php" class="btn btn-secondary">Kembali</a>
+        <a href="tampil_produk.php" class="btn btn-secondary">Kembali</a>
     </form>
 </div>
 
