@@ -173,7 +173,7 @@ $barang = mysqli_fetch_assoc($result);
             </div>
 
 
-            <button type="submit" class="btn btn-primary">Update Barang</button>
+            <button type="submit" class="btn btn-primary">Update Produk</button>
             <a href="tampil_produk.php" class="btn btn-secondary">Kembali</a>
         </form>
     </div>
