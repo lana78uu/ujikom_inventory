@@ -91,6 +91,8 @@ function formatRupiah($angka) {
             transition: color 0.3s ease, transform 0.2s ease-in-out;
             padding: 0.5rem 0;
             border-bottom: 2px solid transparent;
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
         }
 
         .nav-link:hover,
@@ -137,6 +139,7 @@ function formatRupiah($angka) {
         th {
             background-color: #fff;
             color: #555; /* Warna teks header tetap putih */
+            text-align: center;
         }
 
         tr:hover {
@@ -326,7 +329,8 @@ function formatRupiah($angka) {
         <div class="overlay" id="overlay"></div>
         <div class="popup" id="popup">
             <div class="popup-content">
-                <p>Data tidak bisa dihapus karena masih terdapat di Detail Penjualan.</p>
+                <p>Penghapusan gagal.</p>
+                <p>Produk ini telah digunakan dalam transaksi penjualan dan tidak dapat dihapus.</p>
             </div>
             <div class="popup-buttons">
                 <button onclick="closePopup()" class="ok-btn">OK</button>
@@ -344,25 +348,41 @@ function formatRupiah($angka) {
                 window.location.href = 'tampil_produk.php'; // Redirect untuk menghilangkan parameter pesan
             }
         </script>
-    <?php elseif ($pesan == 'sukses'): ?>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            Data berhasil dihapus.
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+    <?php elseif ($pesan == 'sukses' || $pesan == 'gagal'): ?>
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <p>
+                <?php if ($pesan == 'sukses'): ?>
+                    ✅ Data berhasil dihapus.
+                <?php else: ?>
+                    ❌ Data gagal dihapus.
+                <?php endif; ?>
+            </p>
         </div>
-    <?php elseif ($pesan == 'gagal'): ?>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            Data gagal dihapus.
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+        <div class="popup-buttons">
+            <button onclick="closePopup()" class="ok-btn">OK</button>
         </div>
-    <?php endif; ?>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('popup').style.display = 'block';
+        });
+
+        function closePopup() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('popup').style.display = 'none';
+            window.location.href = 'tampil_produk.php';
+        }
+    </script>
+<?php endif; ?>
+
     <header class="header">
         <div class="container d-flex justify-content-between align-items-center">
             <a href="index.php" class="logo">
-                <i class="fas fa-camera logo-icon"></i> YURAS KAMERA
+                <i class="fas fa-camera logo-icon"></i> YURAS KAMERA 
             </a>
             <nav class="nav-links">
                 <li class="nav-item"><a class="nav-link" href="tampil_produk.php">PRODUK</a></li>
