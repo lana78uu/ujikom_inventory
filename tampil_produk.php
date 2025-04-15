@@ -204,25 +204,21 @@ function formatRupiah($angka) {
         }
 
         .input-group {
-            flex-grow: 1;
-            margin-right: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .form-control {
-            background-color: #fff; 
-            color: #333; 
-            border: 1px solid #ccc; 
+            border: 1px solid #555;
             border-radius: 5px;
-            padding: 0.75rem; 
-            margin: 0.5rem; 
-            width: 100%; 
-            box-sizing: border-box; /* Agar padding dan border tidak menambah lebar total */
+            padding: 1rem;
+            color: #eee;
+            background-color: #eee;
         }
 
         .form-control:focus {
             outline: none;
-            border-color: #ffc107; /* Warna fokus yang jelas (misalnya kuning) */
-            box-shadow: 0 0 5px rgba(255, 193, 7, 0.5); /* Efek bayangan fokus yang halus */
+            border-color: #ffc107;
+            box-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
         }
 
         .input-group-append .btn {
